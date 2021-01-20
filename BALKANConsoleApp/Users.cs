@@ -79,7 +79,7 @@ namespace BALKANConsoleApp
         {
             var userService = new UserService();
 
-            var resultListGuests = userService.ListGuests(new OptionsListGuests
+            var resultListGuests = userService.ListGuests(new OptionsList
             {
                 Skip = 0,
                 Take = 10
