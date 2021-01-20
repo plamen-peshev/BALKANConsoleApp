@@ -9,14 +9,14 @@ namespace BALKANConsoleApp
     {
         public static void CreateAccess()
         {
-            Charts.CreateTestChart("CreateAccess");
+            Charts.CreateTestChart("CreateAccessChart");
 
             var tokenService = new TokenService();
 
             var resultCreateAccess = tokenService.CreateAccess(new OptionsCreateAccess
             {
                 ExpireAfterMunutes = 10,
-                ResourceId = "CreateAccess",
+                ResourceId = "CreateAccessChart",
                 Permissions = new Dictionary<string, bool>
                 {
                     {  "SharedReadAccess", true }
@@ -29,19 +29,20 @@ namespace BALKANConsoleApp
             }
             else
             {
+                //Now you can share a link to "CreateAccessChart" chart
                 Console.WriteLine($"https://orgchart.balkan.app/org/MyChartName?ak={resultCreateAccess.Key}");                
             }
         }
 
         public static void CreateSession()
         {
-            Charts.CreateTestChart("CreateSession");
+            Charts.CreateTestChart("CreateSessionChart");
 
             var tokenService = new TokenService();
 
             var resultCreateSession = tokenService.CreateSession(new OptionsCreateSession
             {                
-                ResourceId = "CreateSession",
+                ResourceId = "CreateSessionChart",
                 Permissions = new Dictionary<string, bool>
                 {
                     {  "Read", true },

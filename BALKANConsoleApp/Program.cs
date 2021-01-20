@@ -8,8 +8,10 @@ namespace BALKANConsoleApp
         static void Main(string[] args)
         {
 
-            Configuration.ApiAccessKey = "ak_06d16bd3-6ac3-4097-ae77-42395a6da98c";
+            Configuration.ApiAccessKey = "ak_8252286e-1af0-4f6c-a9a8-c572f7afbf74";
             //REPLACE ak_06d16bd3-6ac3-4097-ae77-42395a6da98c2 with your Access API Key
+
+            HelloOrgChart();
 
             var chartService = new ChartService();
             var tokenService = new TokenService();
@@ -21,7 +23,7 @@ namespace BALKANConsoleApp
             userService.Empty();
             imageService.Empty();
 
-            Charts.HelloOrgChart();
+
             Charts.AddEmployees();
             Charts.AddNodes();
             Charts.UpdateNode();
@@ -32,10 +34,38 @@ namespace BALKANConsoleApp
             Charts.CreateUpdateRemoveList();
             Charts.GenerateNodeIds();
 
+
             Users.InviteAndCreateGuests();
             Users.UpdateGuest();
             Users.ListGuests();
             Users.RemoveGuest();
+
+            Image.Upload();
+
+            Token.CreateAccess();
+            Token.CreateSession();
+        }
+
+        public static void HelloOrgChart()
+        {
+            var chartService = new ChartService();
+            var options = new OptionsCreateNewChart
+            {
+                ChartId = "HelloOrgChart",
+                TemplateName = "Sofia"
+            };
+
+            var result = chartService.Create(options);
+
+            if (result.IsSuccess)
+            {
+                Console.WriteLine("Hello OrgChart. Successfully created chart with id HelloOrgChart and template Sofia!");
+            }
+            else
+            {
+                Console.WriteLine(result.Error);
+                Console.WriteLine("Failed! Verify ApiAccessKey!");
+            }
         }
     }
 }

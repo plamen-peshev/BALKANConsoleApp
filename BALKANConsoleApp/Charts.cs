@@ -6,29 +6,6 @@ namespace BALKANConsoleApp
 {
     public static class Charts
     {
-        public static void HelloOrgChart()
-        {
-            var chartService = new ChartService();
-            var options = new OptionsCreateNewChart
-            {
-                ChartId = "HelloOrgChart",
-                TemplateName = "Sofia"
-            };
-
-            var result = chartService.Create(options);
-
-            if (result.IsSuccess)
-            {
-                Console.WriteLine("Hello OrgChart. Successfully created chart with id MyChartId and template Sofia!");
-            }
-            else
-            {
-                Console.WriteLine(result.Error);
-                Console.WriteLine("Failed! Verify ApiAccessKey!");
-            }
-        }
-
-
         public static void AddEmployees()
         {
             var chartService = new ChartService();
@@ -131,7 +108,7 @@ namespace BALKANConsoleApp
             var chartService = new ChartService();
             var resultAddNodes = chartService.AddNodes(new OptionsAddNodes
             {
-                ChartId= "AddNodes",
+                ChartId= "AddNodesChartName",
                 Nodes = new List<Dictionary<string, string>> 
                 { 
                     new Dictionary<string, string> { { "id",  "1" }, { "Name",  "John Smith" } } ,
@@ -207,7 +184,6 @@ namespace BALKANConsoleApp
         {
             CreateTestChart("GetNodesChart");
 
-
             var chartService = new ChartService();
             var resultGetNodes = chartService.GetNodes(new OptionsChart
             {
@@ -259,6 +235,7 @@ namespace BALKANConsoleApp
                 }
             }
         }
+
 
         public static void CreateUpdateRemoveList()
         {

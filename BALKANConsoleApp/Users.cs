@@ -124,7 +124,5 @@ namespace BALKANConsoleApp
                 Console.WriteLine(resultRemoveGuest.Error);
             }
         }
-
-
     }
 }
